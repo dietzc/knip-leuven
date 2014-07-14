@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE knimeNode PUBLIC "-//UNIKN//DTD KNIME Node 2.0//EN" "http://www.knime.org/Node.dtd">
+<knimeNode icon="./default.png" type="Manipulator">
+	<name>Thinning</name>
+
+	<shortDescription>
+		Applies Thinning.
+	</shortDescription>
+
+	<fullDescription>
+		<intro> Applies Thinning on 2-dimensional binary images. </intro>
+
+	</fullDescription>
+
+	<ports>
+		<inPort index="0" name="In-Port name">2-dimensional binary images</inPort>
+		<outPort index="0" name="Out-Port name">Thinned 2-dimensional binary images</outPort>
+	</ports>
+</knimeNode>

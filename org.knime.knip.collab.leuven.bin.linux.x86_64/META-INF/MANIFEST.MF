@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Libraries KNIP Leuven for Linux x86_64
+Bundle-SymbolicName: org.knime.knip.collab.leuven.bin.linux.x86_64
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: org.knime.knip.leuven.base
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Eclipse-PlatformFilter: (&(osgi.os=linux)(osgi.arch=x86_64))
+Bundle-Vendor: University of Konstanz
+Bundle-ClassPath: .,
+ os/linux/x86_64/artoolkitplus-linux-x86_64.jar,
+ os/linux/x86_64/ffmpeg-linux-x86_64.jar,
+ os/linux/x86_64/libdc1394-linux-x86_64.jar,
+ os/linux/x86_64/libfreenect-linux-x86_64.jar,
+ os/linux/x86_64/opencv-linux-x86_64.jar

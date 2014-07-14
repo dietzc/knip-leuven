@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Libraries KNIP Leuven for Windows x86_64
+Bundle-SymbolicName: org.knime.knip.collab.leuven.bin.windows.x86_64
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: University of Konstanz
+Fragment-Host: org.knime.knip.leuven.base;bundle-version="0.5.0.qualifier"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Eclipse-PlatformFilter: (&(osgi.os=win32)(osgi.arch=x86_64))
+Bundle-ClassPath: lib/artoolkitplus-windows-x86_64.jar,
+ lib/ffmpeg-windows-x86_64.jar,
+ lib/flycapture-windows-x86_64.jar,
+ lib/libfreenect-windows-x86_64.jar,
+ lib/opencv-windows-x86_64.jar,
+ lib/videoinput-windows-x86_64.jar

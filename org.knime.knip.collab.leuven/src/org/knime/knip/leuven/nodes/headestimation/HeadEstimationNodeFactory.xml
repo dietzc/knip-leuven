@@ -1,0 +1,19 @@
+<!DOCTYPE knimeNode PUBLIC "-//UNIKN//DTD KNIME Node 2.0//EN" "http://www.knime.org/Node.dtd">
+<knimeNode icon="orientation.png" type="Manipulator">
+	<name>Head Estimation</name>
+	<shortDescription>
+		Simple heuristic used to distinguish between head and
+		tail: More pixels =>
+		Head
+	</shortDescription>
+
+	<fullDescription>
+		<intro>
+		</intro>
+	</fullDescription>
+
+	<ports>
+		<inPort index="0" name="Thinned and Source BitMask">Images and Labeling</inPort>
+		<outPort index="0" name="Head an Tail in Labeling">Head and Tail in Labeling</outPort>
+	</ports>
+</knimeNode>

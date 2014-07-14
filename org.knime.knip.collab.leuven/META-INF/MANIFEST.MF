@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-Name: KNIP Leuven Plugin
+Bundle-SymbolicName: org.knime.knip.leuven.base;singleton:=true
+Bundle-ManifestVersion: 2
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: University of Konstanz
+Eclipse-RegisterBuddy: org.knime.core
+Require-Bundle: org.knime.base,
+ org.knime.workbench.repository,
+ org.apache.log4j;bundle-version="1.2.15",
+ org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.knime.knip.base;bundle-version="[1.0.1,2.0.0)",
+ org.knime.knip.core;bundle-version="[1.0.1,2.0.0)",
+ org.knime.knip.scifio;bundle-version="0.14.1",
+ org.knime.knip.scijava;bundle-version="2.19.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ClassPath: knip_leuven.jar,
+ lib/artoolkitplus.jar,
+ lib/ffmpeg.jar,
+ lib/flycapture.jar,
+ lib/javacpp.jar,
+ lib/javacv.jar,
+ lib/libdc1394.jar,
+ lib/libfreenect.jar,
+ lib/opencv.jar,
+ lib/videoinput.jar
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.knime.knip.leuven.KNIPLeuvenBundleActivator
+Import-Package: io.scif,
+ loci.formats,
+ org.knime.knip.io,
+ org.knime.knip.io.node.dialog
