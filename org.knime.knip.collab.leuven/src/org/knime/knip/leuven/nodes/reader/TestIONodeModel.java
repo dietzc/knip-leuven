@@ -92,7 +92,7 @@ public class TestIONodeModel extends NodeModel {
 	private ImgPlusCellFactory m_imgPlusFactory;
 
 	protected TestIONodeModel() {
-		super(0, 1);
+		super(1, 1);
 	}
 
 	@Override
