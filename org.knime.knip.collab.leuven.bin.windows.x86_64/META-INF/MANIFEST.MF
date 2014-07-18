@@ -7,9 +7,9 @@ Bundle-Vendor: University of Konstanz
 Fragment-Host: org.knime.knip.leuven.base;bundle-version="0.5.0.qualifier"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Eclipse-PlatformFilter: (&(osgi.os=win32)(osgi.arch=x86_64))
-Bundle-ClassPath: lib/artoolkitplus-windows-x86_64.jar,
- lib/ffmpeg-windows-x86_64.jar,
- lib/flycapture-windows-x86_64.jar,
- lib/libfreenect-windows-x86_64.jar,
- lib/opencv-windows-x86_64.jar,
- lib/videoinput-windows-x86_64.jar
+Bundle-ClassPath: os/win32/x86_64/artoolkitplus-windows-x86_64.jar,
+ os/win32/x86_64/ffmpeg-windows-x86_64.jar,
+ os/win32/x86_64/flycapture-windows-x86_64.jar,
+ os/win32/x86_64/libfreenect-windows-x86_64.jar,
+ os/win32/x86_64/opencv-windows-x86_64.jar,
+ os/win32/x86_64/videoinput-windows-x86_64.jar
