@@ -4,7 +4,7 @@ Bundle-SymbolicName: org.knime.knip.leuven.base;singleton:=true
 Bundle-ManifestVersion: 2
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: University of Konstanz
-Eclipse-RegisterBuddy: org.knime.core
+Eclipse-RegisterBuddy: org.knime.core, org.knime.knip.imagej2.core
 Require-Bundle: org.knime.base,
  org.knime.workbench.repository,
  org.apache.log4j;bundle-version="1.2.15",
@@ -12,8 +12,8 @@ Require-Bundle: org.knime.base,
  org.eclipse.ui,
  org.knime.knip.base;bundle-version="[1.0.1,2.0.0)",
  org.knime.knip.core;bundle-version="[1.0.1,2.0.0)",
- org.knime.knip.scifio;bundle-version="0.14.1",
- org.knime.knip.scijava;bundle-version="2.19.1"
+ org.knime.knip.scijava;bundle-version="2.24.0",
+ org.knime.knip.imagej2.core;bundle-version="0.9.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ClassPath: knip_leuven.jar,
  lib/artoolkitplus.jar,

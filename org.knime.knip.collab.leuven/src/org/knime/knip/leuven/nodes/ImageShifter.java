@@ -62,7 +62,6 @@ import org.scijava.plugin.Plugin;
  * combination of the original neighboring pixels using some user specified
  * interpolation method.
  * 
- * @author Barry DeZonia
  */
 @Plugin(type = Command.class, headless = true, menu = {
 		@Menu(label = MenuConstants.IMAGE_LABEL, weight = MenuConstants.IMAGE_WEIGHT),
