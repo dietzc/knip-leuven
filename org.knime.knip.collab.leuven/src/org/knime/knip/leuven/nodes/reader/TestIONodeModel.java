@@ -59,6 +59,11 @@ import net.imglib2.img.basictypeaccess.array.ByteArray;
 import net.imglib2.meta.ImgPlus;
 import net.imglib2.type.numeric.integer.UnsignedByteType;
 
+import static org.bytedeco.javacpp.opencv_imgproc.*;
+import static org.bytedeco.javacpp.opencv_core.*;
+
+import org.bytedeco.javacpp.opencv_core.IplImage;
+import org.bytedeco.javacpp.helper.opencv_core.CvArr;
 import org.bytedeco.javacv.FFmpegFrameGrabber;
 import org.knime.core.data.DataColumnSpecCreator;
 import org.knime.core.data.DataTableSpec;
@@ -118,7 +123,7 @@ public class TestIONodeModel extends NodeModel {
 		final String path = ((StringValue) inData[0].iterator().next()
 				.getCell(0)).getStringValue();
 
-		final int frameRate = 15;
+		final int frameRate = 1;
 
 		int timeIdx = 0;
 		final FFmpegFrameGrabber grabber = new FFmpegFrameGrabber(path);
@@ -126,14 +131,18 @@ public class TestIONodeModel extends NodeModel {
 
 		try {
 			while (true) {
+				IplImage image = grabber.grab();
+				IplImage imageGray = cvCreateImage( cvGetSize( image ), IPL_DEPTH_8U, 1);
+                cvCvtColor( image, imageGray, CV_BGRA2GRAY);
 
 				if (timeIdx % frameRate == 0) {
-					createImgPlusAndAddToContainer(((DataBufferByte) grabber
-							.grab().getBufferedImage().getRaster()
+					createImgPlusAndAddToContainer(((DataBufferByte) imageGray.getBufferedImage().getRaster()
 							.getDataBuffer()).getData(), container, timeIdx
 							/ frameRate);
+				} else {
+					grabber.grab();
 				}
-				grabber.grab();
+				
 				timeIdx++;
 			}
 		} catch (final Exception e) {
@@ -151,8 +160,8 @@ public class TestIONodeModel extends NodeModel {
 			final BufferedDataContainer container, final int idx)
 			throws IOException {
 
-		final int width = 1024;
-		final int height = 768;
+		final int width = 720;
+		final int height = 480;
 
 		final ArrayImg<UnsignedByteType, ?> img = new ArrayImgFactory<UnsignedByteType>()
 				.create(new long[] { width, height }, new UnsignedByteType());
@@ -161,7 +170,7 @@ public class TestIONodeModel extends NodeModel {
 				.getCurrentStorageArray();
 
 		for (int i = 0; i < update.length; i++) {
-			update[i] = buffer[i * 3];
+			update[i] = buffer[i];
 		}
 
 		container.addRowToTable(new DefaultRow("" + idx, m_imgPlusFactory
