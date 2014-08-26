@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?eclipse version="3.0"?>
-
-<plugin>
+<?eclipse version="3.0"?><plugin>
 	<extension point="org.knime.workbench.repository.nodes">
-		<node expert-flag="false" factory-class="org.knime.knip.leuven.nodes.reader.TestIONodeFactory" id="org.knime.knip.leuven.nodes.reader.TestIONodeFactory" />
-	</extension>
+		<node expert-flag="false" factory-class="org.knime.knip.leuven.nodes.reader.TestIONodeFactory" id="org.knime.knip.leuven.nodes.reader.TestIONodeFactory"/>
+  <node expert-flag="false" factory-class="org.knime.knip.leuven.nodes.features.MovementFeaturesNodeFactory" id="org.knime.knip.leuven.nodes.features.MovementFeaturesNodeFactory">
+  </node>
+  <node expert-flag="false" factory-class="org.knime.knip.leuven.nodes.interpolation.MovementInterpolationNodeFactory" id="org.knime.knip.leuven.nodes.interpolation.MovementInterpolationNodeFactory">
+  </node>
+  <node expert-flag="false" factory-class="org.knime.knip.leuven.nodes.window.WindowFeaturesNodeFactory" id="org.knime.knip.leuven.nodes.window.WindowFeaturesNodeFactory">
+  </node>
+<node category-path="/" factory-class="org.knime.knip.leuven.nodes.object.ObjectFeaturesNodeFactory" id="org.knime.knip.leuven.nodes.object.ObjectFeaturesNodeFactory"/>
+</extension>
 	<extension point="org.knime.workbench.repository.categories">
-		<category description="KNIP Leuven Plugin" icon="icons/default.png" level-id="javacv" name="KNIP Leuven Plugin" path="/community/knip" />
+		<category description="KNIP Leuven Plugin" icon="icons/default.png" level-id="javacv" name="KNIP Leuven Plugin" path="/community/knip"/>
 	</extension>
- <extension
-       point="org.knime.workbench.repository.nodesets">
-    <nodeset
-          expert-flag="false"
-          factory-class="org.knime.knip.leuven.nodes.LeuvenNodeSetFactory"
-          id="org.knime.knip.leuven.nodes.LeuvenNodeSetFactory">
+ <extension point="org.knime.workbench.repository.nodesets">
+    <nodeset expert-flag="false" factory-class="org.knime.knip.leuven.nodes.LeuvenNodeSetFactory" id="org.knime.knip.leuven.nodes.LeuvenNodeSetFactory">
     </nodeset>
  </extension>
 </plugin>

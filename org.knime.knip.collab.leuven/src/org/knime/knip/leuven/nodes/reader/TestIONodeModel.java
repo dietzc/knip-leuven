@@ -118,7 +118,7 @@ public class TestIONodeModel extends NodeModel {
 		final String path = ((StringValue) inData[0].iterator().next()
 				.getCell(0)).getStringValue();
 
-		final int frameRate = 15;
+		final int frameRate = 1; // use every x frames.
 
 		int timeIdx = 0;
 		final FFmpegFrameGrabber grabber = new FFmpegFrameGrabber(path);
@@ -132,8 +132,10 @@ public class TestIONodeModel extends NodeModel {
 							.grab().getBufferedImage().getRaster()
 							.getDataBuffer()).getData(), container, timeIdx
 							/ frameRate);
+				} else{
+					grabber.grab();
 				}
-				grabber.grab();
+				
 				timeIdx++;
 			}
 		} catch (final Exception e) {

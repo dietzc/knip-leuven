@@ -1,1 +1,0 @@
-{"class":"org.knime.knip.leuven.nodes.ImageShifter","values":{"headless":true,"menu":[{"label":"Image","weight":2.0},{"label":"Image Shifter"}],"type":"org.scijava.command.Command"}}
