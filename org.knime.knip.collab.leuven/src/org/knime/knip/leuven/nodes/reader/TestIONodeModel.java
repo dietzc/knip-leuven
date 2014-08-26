@@ -123,6 +123,7 @@ public class TestIONodeModel extends NodeModel {
 		int timeIdx = 0;
 		final FFmpegFrameGrabber grabber = new FFmpegFrameGrabber(path);
 		grabber.start();
+		int totalFrames = grabber.getLengthInFrames();
 
 		try {
 			while (true) {
@@ -135,7 +136,8 @@ public class TestIONodeModel extends NodeModel {
 				} else{
 					grabber.grab();
 				}
-				
+				exec.checkCanceled();
+	            exec.setProgress(timeIdx / (double)totalFrames, "Frame # " + timeIdx + " / " + totalFrames);
 				timeIdx++;
 			}
 		} catch (final Exception e) {
