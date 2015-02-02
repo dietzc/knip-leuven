@@ -53,10 +53,10 @@ import java.awt.image.DataBufferByte;
 import java.io.File;
 import java.io.IOException;
 
+import net.imagej.ImgPlus;
 import net.imglib2.img.array.ArrayImg;
 import net.imglib2.img.array.ArrayImgFactory;
 import net.imglib2.img.basictypeaccess.array.ByteArray;
-import net.imglib2.meta.ImgPlus;
 import net.imglib2.type.numeric.integer.UnsignedByteType;
 
 import org.bytedeco.javacv.FFmpegFrameGrabber;
