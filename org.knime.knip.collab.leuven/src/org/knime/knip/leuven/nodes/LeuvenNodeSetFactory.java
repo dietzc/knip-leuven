@@ -8,7 +8,6 @@ import org.knime.core.node.NodeFactory;
 import org.knime.core.node.NodeModel;
 import org.knime.core.node.NodeSetFactory;
 import org.knime.core.node.config.ConfigRO;
-import org.knime.knip.leuven.nodes.headestimation.HeadEstimationNodeFactory;
 import org.knime.knip.leuven.nodes.thinning.ThinningNodeFactory;
 
 /**
@@ -25,11 +24,10 @@ public class LeuvenNodeSetFactory implements NodeSetFactory {
 	@Override
 	public Collection<String> getNodeFactoryIds() {
 
-		m_nodeFactories.put(ThinningNodeFactory.class.getCanonicalName(),
-				"/community/knip/projects/leuven");
+		m_nodeFactories.put(ThinningNodeFactory.class.getCanonicalName(), "/community/knip/projects/leuven");
 
-		m_nodeFactories.put(HeadEstimationNodeFactory.class.getCanonicalName(),
-				"/community/knip/projects/leuven");
+		// m_nodeFactories.put(HeadEstimationNodeFactory.class.getCanonicalName(),
+		// "/community/knip/projects/leuven");
 
 		return m_nodeFactories.keySet();
 	}
@@ -39,11 +37,9 @@ public class LeuvenNodeSetFactory implements NodeSetFactory {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public Class<? extends NodeFactory<? extends NodeModel>> getNodeFactory(
-			final String id) {
+	public Class<? extends NodeFactory<? extends NodeModel>> getNodeFactory(final String id) {
 		try {
-			return (Class<? extends NodeFactory<? extends NodeModel>>) Class
-					.forName(id);
+			return (Class<? extends NodeFactory<? extends NodeModel>>) Class.forName(id);
 		} catch (final ClassNotFoundException e) {
 		}
 		return null;

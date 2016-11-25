@@ -52,6 +52,7 @@ package org.knime.knip.leuven.nodes.thinning;
 
 import java.util.List;
 
+import net.imagej.ImgPlus;
 import net.imglib2.img.Img;
 import net.imglib2.ops.operation.SubsetOperations;
 import net.imglib2.type.logic.BitType;
@@ -63,7 +64,7 @@ import org.knime.knip.base.data.img.ImgPlusCellFactory;
 import org.knime.knip.base.data.img.ImgPlusValue;
 import org.knime.knip.base.node.ValueToCellNodeModel;
 import org.knime.knip.base.node.nodesettings.SettingsModelDimSelection;
-import org.knime.knip.core.util.ImgUtils;
+import org.knime.knip.core.KNIPGateway;
 
 /**
  * Node Model for node Thinning. Prepares the image to get thinned.
@@ -73,8 +74,7 @@ import org.knime.knip.core.util.ImgUtils;
  * @param <BitType>
  *            the pixel type of the input and output image
  */
-public class ThinningNodeModel extends
-		ValueToCellNodeModel<ImgPlusValue<BitType>, ImgPlusCell<BitType>> {
+public class ThinningNodeModel extends ValueToCellNodeModel<ImgPlusValue<BitType>, ImgPlusCell<BitType>> {
 
 	private SettingsModelDimSelection m_dimSelection = createDimSelectionModel();
 
@@ -104,18 +104,13 @@ public class ThinningNodeModel extends
 	 *            the value of the current cell
 	 */
 	@Override
-	protected ImgPlusCell<BitType> compute(ImgPlusValue<BitType> cellValue)
-			throws Exception {
+	protected ImgPlusCell<BitType> compute(ImgPlusValue<BitType> cellValue) throws Exception {
 
-		Img<BitType> res = SubsetOperations.iterate(
-				new Thinning<Img<BitType>>(),
-				m_dimSelection.getSelectedDimIndices(cellValue.getImgPlus()),
-				cellValue.getImgPlus(),
-				ImgUtils.createEmptyCopy(cellValue.getImgPlus()),
-				getExecutorService());
+		Img<BitType> res = SubsetOperations.iterate(new Thinning<Img<BitType>>(),
+				m_dimSelection.getSelectedDimIndices(cellValue.getImgPlus()), cellValue.getImgPlus(),
+				KNIPGateway.ops().create().img(cellValue.getImgPlus()), getExecutorService());
 
-		return m_imgCellFactory.createCell(res, cellValue.getMetadata(),
-				cellValue.getMinimum());
+		return m_imgCellFactory.createCell(new ImgPlus<>(res));
 
 	}
 
